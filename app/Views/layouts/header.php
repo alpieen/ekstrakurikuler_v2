@@ -1,26 +1,37 @@
 <!doctype html>
-<html lang="en">
-
+<html lang="id">
 <head>
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     
-    <meta charset="utf-8" />
-    <title>Dashboard | Morvin - Admin & Dashboard Template</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-    <meta content="Themesdesign" name="author" />
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
-
-    <!-- plugin css -->
-    <link href="<?= base_url('assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css') ?>" rel="stylesheet" type="text/css" />
-
-    <!-- Bootstrap Css -->
-    <link href="<?= base_url('assets/css/bootstrap.min.css') ?>" id="bootstrap-style" rel="stylesheet" type="text/css" />
-    <!-- Icons Css -->
-    <link href="<?= base_url('assets/css/icons.min.css') ?>" rel="stylesheet" type="text/css" />
-    <!-- App Css-->
-    <link href="<?= base_url('assets/css/app.min.css') ?>" id="app-style" rel="stylesheet" type="text/css" />
-
-
+    <title><?= esc($pageTitle ?? config('Project')->title) ?></title>
+    
+    <link rel="shortcut icon" href="<?= base_url('assets/images/favicon.ico') ?>">
+    <link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/css/app.min.css') ?>" rel="stylesheet">
+    
+    <style>
+        .logo-text {
+            font-weight: 700;
+            font-size: 18px;
+        }
+        .menu-title-small {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #8791a5;
+            padding: 10px 24px;
+        }
+        .simple-icon {
+            display: inline-block;
+            width: 22px;
+            text-align: center;
+        }
+        .table td, .table th {
+            vertical-align: middle;
+        }
+        .content-page {
+            min-height: 100vh;
+        }
+    </style>
 </head>
+<body data-sidebar="dark">

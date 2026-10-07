@@ -1,118 +1,72 @@
 <!doctype html>
-<html lang="en">
-
+<html lang="id">
 <head>
-
-    
-    <meta charset="utf-8" />
-    <title>Login page | Morvin - Admin & Dashboard Template</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-    <meta content="Themesdesign" name="author" />
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
-
-    <!-- Bootstrap Css -->
-    <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
-    <!-- Icons Css -->
-    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <!-- App Css-->
-    <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
-
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Login - <?= esc($title) ?></title>
+    <link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/css/app.min.css') ?>" rel="stylesheet">
 </head>
-
-
-<body class="authentication-bg bg-primary">
-    <div class="home-center">
-        <div class="home-desc-center">
-
-            <div class="container">
-
-                <div class="home-btn"><a href="/" class="text-white router-link-active"><i
-                            class="fas fa-home h2"></i></a></div>
-
-
-                <div class="row justify-content-center">
-                    <div class="col-md-8 col-lg-6 col-xl-5">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="px-2 py-3">
-
-
-                                    <div class="text-center">
-                                        <a href="index.html">
-                                            <img src="assets/images/logo-dark.png" height="22" alt="logo">
-                                        </a>
-
-                                        <h5 class="text-primary mb-2 mt-4">Welcome Back !</h5>
-                                        <p class="text-muted">Sign in to continue to Morvin.</p>
-                                    </div>
-
-
-                                    <form class="form-horizontal mt-4 pt-2" action="index.html">
-
-                                        <div class="mb-3">
-                                            <label for="username">Username</label>
-                                            <input type="text" class="form-control" id="username"
-                                                placeholder="Enter username">
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="userpassword">Password</label>
-                                            <input type="password" class="form-control" id="userpassword"
-                                                placeholder="Enter password">
-                                        </div>
-
-                                        <div class="mb-3">
-                                                <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input"
-                                                        id="customControlInline">
-                                                    <label class="form-label"
-                                                        for="customControlInline">Remember me</label>
-                                                </div>
-                                        </div>
-
-                                        <div>
-                                            <button class="btn btn-primary w-100 waves-effect waves-light"
-                                                type="submit">Log In</button>
-                                        </div>
-
-                                        <div class="mt-4 text-center">
-                                            <a href="auth-recoverpw.html" class="text-muted"><i class="mdi mdi-lock me-1"></i> Forgot your password?</a>
-                                        </div>
-    
-
-                                    </form>
-
-                                  
-                                </div>
+<body class="bg-primary bg-pattern">
+    <div class="account-pages my-5 pt-sm-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6 col-xl-5">
+                    <div class="card overflow-hidden">
+                        
+                        <div class="bg-login text-center">
+                            <div class="bg-login-overlay"></div>
+                            <div class="position-relative">
+                                <h5 class="text-white font-size-20"><?= esc($title) ?></h5>
+                                <p class="text-white-50 mb-0">Mini Project Kelas XII RPL</p>
                             </div>
                         </div>
-
-                        <div class="mt-5 text-center text-white">
-                            <p>Don't have an account ?<a href="auth-register.html" class="fw-bold text-white"> Register</a> </p>
-                            <p>© <script>document.write(new Date().getFullYear())</script> Morvin. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesdesign</p>
+                        
+                        <div class="card-body pt-5">
+                            <div class="p-2">
+                                
+                                <?php if(session()->getFlashdata('error')): ?>
+                                    <div class="alert alert-danger">
+                                        <?= esc(session()->getFlashdata('error')) ?>
+                                    </div>
+                                <?php endif; ?>
+                                
+                                <?php if(session()->getFlashdata('success')): ?>
+                                    <div class="alert alert-success">
+                                        <?= esc(session()->getFlashdata('success')) ?>
+                                    </div>
+                                <?php endif; ?>
+                                
+                                <form method="post" action="<?= site_url('login') ?>">
+                                    <?= csrf_field() ?>
+                                    
+                                    <div class="mb-3">
+                                        <label>Username</label>
+                                        <input class="form-control" name="username" value="<?= old('username') ?>" required>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label>Password</label>
+                                        <input type="password" class="form-control" name="password" required>
+                                    </div>
+                                    
+                                    <div class="mt-3 d-grid">
+                                        <button class="btn btn-primary" type="submit">Login</button>
+                                    </div>
+                                </form>
+                                
+                                <div class="mt-4 text-center text-muted small">
+                                    Akun contoh: admin / admin123
+                                </div>
+                                
+                            </div>
                         </div>
+                        
                     </div>
                 </div>
-
             </div>
-
-
         </div>
-        <!-- End Log In page -->
     </div>
-
-    <!-- JAVASCRIPT -->
-    <script src="assets/libs/jquery/jquery.min.js"></script>
-    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/libs/metismenu/metisMenu.min.js"></script>
-    <script src="assets/libs/simplebar/simplebar.min.js"></script>
-    <script src="assets/libs/node-waves/waves.min.js"></script>
-
-    <script src="assets/js/app.js"></script>
-
+    <script src="<?= base_url('assets/libs/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
 </body>
-
 </html>
