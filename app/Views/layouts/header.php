@@ -19,9 +19,15 @@
 
     <style>
         .logo-text {
-            font-weight: 700;
-            font-size: 18px;
-        }
+    font-weight: 700;
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 210px;
+    vertical-align: middle;
+}
         .menu-title-small {
             font-size: 11px;
             text-transform: uppercase;

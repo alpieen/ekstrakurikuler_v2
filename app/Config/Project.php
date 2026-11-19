@@ -6,7 +6,7 @@ use CodeIgniter\Config\BaseConfig;
 
 class Project extends BaseConfig
 {
-    public string $title = 'Sistem Ekstrakurikuler Sekolah';
+    public string $title = 'Sistem Ekstrakurikuler';
     public string $database = 'db_ekstrakurikuler';
     public int $stage = 12;
     public array $authTables = ['pembina'];
