@@ -1,9 +1,13 @@
-<?= view('layout/header',['pageTitle'=>$pageTitle??null]) ?>
+<?= view('layouts/header', ['pageTitle' => $title ?? null]) ?>
 
 <div id="layout-wrapper">
-    <?= view('layout/topbar') ?>
-    <?= view('layout/sidebar') ?>
-    <?= view('layout/body') ?>
+    <?= view('layouts/topbar') ?>
+    <?= view('layouts/sidebar') ?>
+    <?= view('layouts/body') ?>
 </div>
 
-<?= view('layout/rightbar') ?>
+<?= view('layouts/rightbar') ?>
+<?= view('layouts/scripts') ?>
+
+</body>
+</html>
