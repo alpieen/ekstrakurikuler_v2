@@ -2,13 +2,20 @@
 
 namespace App\Controllers;
 
-use App\Controllers\BaseController;
-use CodeIgniter\HTTP\ResponseInterface;
+use App\Models\LaporanModel;
 
 class Dashboard extends BaseController
 {
     public function index()
     {
-        // return view('dashboard');
+        $laporan = new LaporanModel();
+
+        return view('dashboard', [
+            'title'      => 'Dashboard',
+            'ringkasan'  => $laporan->ringkasan(),
+            'jadwal'     => $laporan->jadwalMendatang(5),
+            'ekskul'     => $laporan->anggotaPerEkskul(),
+            'kehadiran'  => $laporan->ringkasanKehadiran(),
+        ]);
     }
 }
